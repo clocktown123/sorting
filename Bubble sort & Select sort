@@ -1,0 +1,32 @@
+def BubSort(num):
+    n = len(num)
+    
+    for i in range(n):
+        swapped = False
+        for j in range(0, n-i-1):
+            if num[j] > num[j+1]:
+                num[j], num[j+1] = num[j+1], num[j]
+                swapped = True
+        if swapped == False:
+            break
+                
+
+
+def SelectSort(num):
+    h = len(num)
+    for i in range(h):
+        m = i
+        for j in range(i+1, h):
+            if num[j] <= num[m]:
+                m = j
+                slot = j
+        num[i], num[m] = num[m], num[i]
+    
+    
+    print(num)
+    
+
+test = [5, 2, 3, 70, 33, 1]
+test2 = [3, 1, 2, 5, 4]
+#BubSort(test)
+SelectSort(test)
