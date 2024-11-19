@@ -1,0 +1,42 @@
+import winsound
+import random
+
+#write bubble sort function here
+
+def BubSort(noise):
+    n = len(noise)
+    
+    for i in range(n):
+        swapped = False
+        for j in range(0, n-i-1):
+            if noise[j].pitch > noise[j+1].pitch:
+                for k in range(n):
+                    noiseList[k].BeepNoise()
+                noise[j].pitch, noise[j+1].pitch = noise[j+1].pitch, noise[j].pitch
+                swapped = True
+        if swapped == False:
+            break
+
+class note:
+    def __init__(self, f, l):
+        self.pitch = f
+        self.length = l
+
+    def BeepNoise(self):
+        winsound.Beep(self.pitch, self.length) 
+
+#create an empty list
+
+noiseList = []
+for i in range(20):
+    noiseList.append(note(random.randrange(50, 1500), random.randrange(100, 1500)))
+
+
+for i in range(len(noiseList)):
+     noiseList[i].BeepNoise()
+
+BubSort(noiseList)
+
+
+for i in range(len(noiseList)):
+    noiseList[i].BeepNoise()
